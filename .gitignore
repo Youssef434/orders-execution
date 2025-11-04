@@ -1,0 +1,70 @@
+# --------------------------
+# OS generated files
+# --------------------------
+.DS_Store
+Thumbs.db
+
+# --------------------------
+# Visual Studio / Rider / IDEs
+# --------------------------
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# --------------------------
+# Build / output
+# --------------------------
+bin/
+obj/
+out/
+TestResults/
+*.exe
+*.dll
+*.pdb
+*.app
+*.apk
+*.iws
+
+# --------------------------
+# NuGet
+# --------------------------
+*.nupkg
+packages/
+.nuget/
+
+# --------------------------
+# Rider caches
+# --------------------------
+.idea/
+*.iml
+
+# --------------------------
+# Resharper / JetBrains
+# --------------------------
+_ReSharper*/
+*.DotSettings.user
+
+# --------------------------
+# Log files
+# --------------------------
+*.log
+
+# --------------------------
+# Temporary files
+# --------------------------
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# --------------------------
+# Others
+# --------------------------
+.vscode/
+*.code-workspace
+
