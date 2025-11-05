@@ -26,6 +26,6 @@ internal sealed class TradeCache : ITradeCache
     }
     public void Add(Order order, Trade trade)
     {
-        _cache.TryAdd(order, trade);
+        _ = _cache.TryAdd(order, trade);
     }
 }
