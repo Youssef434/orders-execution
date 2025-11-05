@@ -25,15 +25,19 @@ public class OrderExecutorAdapterBenchmark
     [Benchmark]
     public async Task ExecuteOrderTenThousandTimesWithValueTask()
     {
-        for (var i = 0; i < 10_000; i += 1)
-            _ = await _executor.ExecuteOrderAsync(_order, CancellationToken.None);
+        await Parallel.ForEachAsync(Enumerable.Range(0, 10_000), async (_, _) =>
+        {
+            _ = await _executor.ExecuteOrderAsync(_order, CancellationToken.None).ConfigureAwait(false);
+        }).ConfigureAwait(false);
     }
 
     [Benchmark]
     public async Task ExecuteOrderThenThousandTimesWithTask()
     {
-        for (var i = 0; i < 10_000; i += 1)
+        await Parallel.ForEachAsync(Enumerable.Range(0, 10_000), async (_, _) =>
+        {
             _ = await ExecuteOrderAsync(_order).ConfigureAwait(false);
+        }).ConfigureAwait(false);
         return;
         async Task<Trade> ExecuteOrderAsync(Order order)
         {
