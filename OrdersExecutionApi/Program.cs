@@ -32,7 +32,7 @@ app.MapPost("/api/orders/execute", async (Order? order, IOrderExecutor orderExec
     try
     {
         ArgumentNullException.ThrowIfNull(order);
-        var cancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+        using var cancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
         cancellationTokenSource.CancelAfter(TimeSpan.FromSeconds(30));
         var trade = await orderExecutor.ExecuteOrderAsync(order, cancellationTokenSource.Token).ConfigureAwait(false);
         logger.LogInformation("Order {Order} executed successfully", order);
